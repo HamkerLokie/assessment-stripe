@@ -29,9 +29,8 @@ const postControllers = {
   },
   async cancel (req, res, next) {
     try {
-      const subscriptionId = req.body.sub;
-      console.log('sub',subscriptionId);
-      const result = await Subscribed.findByIdAndDelete(subscriptionId)
+      const {sub} = req.params;
+      const result = await Subscribed.findByIdAndDelete(sub)
       if (!result) {
       
         return res.status(404).json({ message: 'Subscription NOt Deleted' })

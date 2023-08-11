@@ -17,7 +17,7 @@ router.get('/getPlans', getControllers.getPlans)
 router.post('/login', loginController.login)
 router.post('/register', registerController.tempReg)
 router.post('/subscribe', protect, postControllers.subscribe)
-router.delete('/cancel', protect, postControllers.cancel)
+router.delete('/cancel/:sub', protect, postControllers.cancel)
 router.get('/active', protect, postControllers.getMy)
 
 router.post('/payment', paymentController.pay)
