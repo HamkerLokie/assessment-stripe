@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "proxy":"https://yogesh-assessment.netlify.app/login",
   "scripts": {
     "dev": "nodemon -r esm server.js",
     "start": "node -r esm server.js"

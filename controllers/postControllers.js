@@ -22,7 +22,6 @@ const postControllers = {
         return res.status(404).json({ message: 'Subscription not found' })
       }
       res.send(result)
-      console.log(result)
     } catch (error) {
       console.log(error)
       next(error)

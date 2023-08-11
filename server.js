@@ -4,32 +4,25 @@ import { PORT, DB_URI } from './config'
 import router from './routes'
 import cors from 'cors'
 import bodyParser from 'body-parser'
-const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST)
+const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST)
 import errorHandler from './middlewares/errorHandler'
-
 
 const app = express()
 
 // Database Connection
 
-mongoose.connect(DB_URI) 
+mongoose.connect(DB_URI)
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'Database Connection Error'))
 db.once('open', () => {
   console.log('Database Connected')
 })
-app.use(cors({
-  origin: 'https://yogesh-assessment.netlify.app', // Set the allowed origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-}));
+app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.json())
 
-
 app.use(router)
-
-
 
 app.use(errorHandler)
 
