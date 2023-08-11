@@ -17,10 +17,10 @@ db.on('error', console.error.bind(console, 'Database Connection Error'))
 db.once('open', () => {
   console.log('Database Connected')
 })
-app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.json())
+app.use(cors())
 
 app.use(router)
 
