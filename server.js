@@ -18,7 +18,10 @@ db.on('error', console.error.bind(console, 'Database Connection Error'))
 db.once('open', () => {
   console.log('Database Connected')
 })
-app.use(cors())
+app.use(cors({
+  origin: 'https://yogesh-assessment.netlify.app', // Set the allowed origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+}));
 app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.json())
