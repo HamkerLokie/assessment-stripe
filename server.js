@@ -25,7 +25,6 @@ app.use(cors())
 app.use(router)
 
 app.use(errorHandler)
-
 app.listen(PORT, () => {
   console.log(`Server Running on ${PORT}`)
 })
